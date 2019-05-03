@@ -1,0 +1,29 @@
+[package]
+name = "dissertation"
+version = "0.1.0"
+authors = ["Alix"]
+edition = "2018"
+
+[dependencies]
+glium = { version = "*"}
+winit = { version = "*", features = ["serde"]}
+specs = { version = "*", features = ["serde"]}
+serde = "*"
+serde_derive = "*"
+shrev = "*"
+shred = "*"
+nphysics2d = "*"
+image = "*"
+specs-derive = "*"
+lazy_static = "*"
+num = "*"
+nalgebra = {version = "*", features = ["serde-serialize"]}
+walkdir = "*"
+nfd = "*"
+interpolation = "*"
+ndarray = "*"
+imgui-glium-renderer = { path="imgui-rs/imgui-glium-renderer"}
+imgui-winit-support = { path="imgui-rs/imgui-winit-support"}
+imgui = { path="imgui-rs"}
+imgui-sys = {path = "imgui-rs/imgui-sys", features=["glium"]}
+ron = "*"

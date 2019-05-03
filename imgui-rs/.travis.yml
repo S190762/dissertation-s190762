@@ -1,0 +1,34 @@
+sudo: false
+dist: trusty
+language: rust
+rust:
+  - stable
+  - beta
+  - nightly
+  - 1.31.0
+os:
+  - linux
+  - osx
+  - windows
+
+cache:
+  directories:
+    - /home/travis/.cargo
+
+before_cache:
+  - rm -rf /home/travis/.cargo/registry
+
+matrix:
+  allow_failures:
+    - rust: nightly
+
+before_install:
+  - git submodule update --init --recursive
+
+script:
+  - cargo build --all --verbose
+  - cargo test --all --verbose
+  - cargo build --all --verbose --manifest-path imgui-examples/Cargo.toml
+  - cargo test --all --verbose --manifest-path imgui-examples/Cargo.toml
+  - cargo build --all --verbose --manifest-path imgui-glium-examples/Cargo.toml
+  - cargo test --all --verbose --manifest-path imgui-glium-examples/Cargo.toml
